@@ -27,7 +27,7 @@ def preprocess(X, y):
 
     # Convert the string labels to integer labels
     for i in range(len(y)):
-        y[i] = y[i][-1]
+        y[i] = int(y[i][-1])
 
     df['Body_Level'] = y
 
