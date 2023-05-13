@@ -1,24 +1,23 @@
 import pandas as pd
-from sklearn.preprocessing import MinMaxScaler
+from sklearn.preprocessing import StandardScaler, LabelEncoder
 
 def preprocess(X, y):
-    # Find the columns with categorical values
-    categorical_attributes = X.select_dtypes(include=['object']).columns.tolist()
-
-
     # Find the columns with continuous values
     continuous_attributes = X.select_dtypes(include=['float64']).columns.tolist()
 
-    # Normalize the continuous attributes to be in the range of 0 to 1
+    # Standardize the continuous attributes
     for attribute in continuous_attributes:
-        X[attribute] = MinMaxScaler().fit_transform(X[[attribute]])
+        X[attribute] = StandardScaler().fit_transform(X[[attribute]])
 
-    # Check if the continuous attributes are normalized
-    for attribute in continuous_attributes:
-        assert X[attribute].min() == 0
-        assert (X[attribute].max() >= 0.999999999999999 and X[attribute].max() <= 1.0)
+    # The columns with categorical values to be encoded using label encoding
+    categorical_attributes = ['H_Cal_Consump', 'Alcohol_Consump', 'Smoking', 'Food_Between_Meals', 'Fam_Hist', 'H_Cal_Burn']
+    for attribute in categorical_attributes:
+        label_encoder = LabelEncoder()
+        X[attribute] = label_encoder.fit_transform(X[attribute])
 
-    # Convert the categorical attributes to one-hot encoding
+    # The columns with categorical values to be encoded using one-hot encoding
+    categorical_attributes = ['Gender', 'Transport']
+
     for attribute in categorical_attributes:
         encoded_attribute = pd.get_dummies(X[attribute], prefix=attribute)
         X.drop([attribute], axis=1, inplace=True)
