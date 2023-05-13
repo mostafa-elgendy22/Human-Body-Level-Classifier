@@ -1,0 +1,6 @@
+Apply learning theory on models
+Model bias-variance analysis (learning curves)  (Done)
+Comparison of used models with baseline models
+Model hyperparameter tuning (or search)
+Regularization
+Validation curve (e.g.: regularizer)

@@ -1,9 +1,11 @@
 import pandas as pd
+import numpy as np
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 
 def preprocess(X, y):
     # Find the columns with continuous values
     continuous_attributes = X.select_dtypes(include=['float64']).columns.tolist()
+    # continuous_attributes.remove('Meal_Count')
 
     # Standardize the continuous attributes
     for attribute in continuous_attributes:
