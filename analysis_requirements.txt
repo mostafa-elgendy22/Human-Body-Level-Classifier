@@ -1,6 +1,10 @@
+Class balance analysis          (Done)
+Feature covariance analysis     (Done)
+Outlier detection and removal   (Done)
 Apply learning theory on models
-Model bias-variance analysis (learning curves)  (Done)
-Comparison of used models with baseline models
+learning curves                 (Done)
+Model bias-variance analysis    (Done)
+Comparison of used models with baseline models  (Done)
 Model hyperparameter tuning (or search)
 Regularization
 Validation curve (e.g.: regularizer)

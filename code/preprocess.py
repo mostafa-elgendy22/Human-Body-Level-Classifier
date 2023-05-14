@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 
-def preprocess(X, y):
+def preprocess(X, y=None):
     # Find the columns with continuous values
     continuous_attributes = X.select_dtypes(include=['float64']).columns.tolist()
     # continuous_attributes.remove('Meal_Count')
@@ -27,10 +27,11 @@ def preprocess(X, y):
 
     df = X
 
-    # Convert the string labels to integer labels
-    for i in range(len(y)):
-        y[i] = int(y[i][-1])
+    if y is not None:
+        # Convert the string labels to integer labels
+        for i in range(len(y)):
+            y[i] = int(y[i][-1])
 
-    df['Body_Level'] = y
+        df['Body_Level'] = y
 
     return df
