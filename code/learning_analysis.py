@@ -5,7 +5,7 @@ from scipy.signal import savgol_filter
 
 def learning_analysis(model_architecture, X, y):
     train_sizes, train_scores, test_scores = learning_curve(estimator=model_architecture, X=X, y=y,cv=10, 
-                                                            train_sizes=np.linspace(0.01, 1.0, 100), n_jobs=2)
+                                                            train_sizes=np.linspace(0.01, 1.0, 50), n_jobs=2)
 
     # Calculate training and test mean and std
     train_mean = np.mean(train_scores, axis=1)
