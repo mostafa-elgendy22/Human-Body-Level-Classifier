@@ -5,7 +5,7 @@ from scipy.signal import savgol_filter
 
 def bias_variance_analysis(model_architecture, X, y):
     train_sizes, train_scores, test_scores = learning_curve(estimator=model_architecture, X=X, y=y,cv=10, 
-                                                            train_sizes=np.linspace(0.01, 1.0, 100), n_jobs=2)
+                                                            train_sizes=np.linspace(0.01, 1.0, 50), n_jobs=2)
 
     train_loss = 1 - train_scores
     test_loss = 1 - test_scores
