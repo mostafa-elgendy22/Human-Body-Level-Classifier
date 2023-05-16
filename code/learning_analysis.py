@@ -15,7 +15,7 @@ def learning_analysis(model_architecture, X, y):
 
     plt.style.use('default')
     plt.plot(train_sizes, train_mean, label = 'train_acc', color = 'b')
-    plt.plot(train_sizes, test_mean, label = 'test_acc', color = 'r')
+    plt.plot(train_sizes, test_mean, label = 'val_acc', color = 'r')
     plt.ylabel('Accuracy', fontsize = 14)
     plt.xlabel('Training set size', fontsize = 14)
     plt.title(f'Learning Curve of {type(model_architecture).__name__}', fontsize = 18, y = 1.03)

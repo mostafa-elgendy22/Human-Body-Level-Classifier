@@ -35,3 +35,7 @@ def preprocess(X, y=None):
         df['Body_Level'] = y
 
     return df
+
+def remove_uncorrelated_features(df):
+    df = df.drop(['Veg_Consump', 'Meal_Count', 'Smoking'], axis=1)
+    return df
