@@ -5,7 +5,6 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder
 def preprocess(df):
     # Find the columns with continuous values
     continuous_attributes = df.select_dtypes(include=['float64']).columns.tolist()
-    # continuous_attributes.remove('Meal_Count')
 
     # Standardize the continuous attributes
     for attribute in continuous_attributes:
@@ -34,6 +33,5 @@ def preprocess(df):
     return df
 
 def remove_uncorrelated_features(df):
-    # df = df.drop(['Veg_Consump', 'Meal_Count', 'Smoking'], axis=1)
     df = df.drop(['Meal_Count'], axis=1)
     return df
