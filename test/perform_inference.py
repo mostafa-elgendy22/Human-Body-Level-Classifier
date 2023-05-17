@@ -36,6 +36,14 @@ with open('model.pkl', 'rb') as file:
     model = pickle.load(file)
 
 df = remove_uncorrelated_features(preprocess(df))
+
+one_hot_encoded = ['Transport_Automobile',	'Transport_Bike'	'Transport_Motorbike',	'Transport_Public_Transportation','Transport_Walking']
+columns = df.columns.tolist()
+
+for column in one_hot_encoded:
+    if column not in columns:
+        df[column] = 0
+
 X_test = df.to_numpy()
 y_pred = model.predict(X_test)
 
