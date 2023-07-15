@@ -14,6 +14,7 @@
 
 
 # Introduction to the Problem
+The main goal of the project is to solve the supervised problem of body level classification. Given numerical and categorical features of a person's health such as  height, and weight, family history, the goal is to predict the body level of the person out of four levels.
 
 # Dataset Analysis & Preprocessing
 The provided dataset is initially split into train and test with ratios of 0.75 & 0.25 respectively. This is done to ensure that the generalization ability of the implemented models is a good approximation to its generalization ability on the real test set then the following analysis is done on the training dataset. The following plots show that there is a target class imbalance in the training dataset.
