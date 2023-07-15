@@ -37,7 +37,7 @@ with open('model.pkl', 'rb') as file:
 
 df = remove_uncorrelated_features(preprocess(df))
 
-one_hot_encoded = ['Transport_Automobile',	'Transport_Bike'	'Transport_Motorbike',	'Transport_Public_Transportation','Transport_Walking']
+one_hot_encoded = ['Transport_Automobile', 'Transport_Bike', 'Transport_Motorbike',	'Transport_Public_Transportation', 'Transport_Walking']
 columns = df.columns.tolist()
 
 for column in one_hot_encoded:
